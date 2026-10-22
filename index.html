@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Página pessoal feita nas aulas de ARA0062.">
+    <title>Raquel Pacheco Mendes — página pessoal</title>
+
+    <!--
+      A WEB FONT. Vem do Google Fonts e é a única coisa que a tipografia exige
+      do HTML. Ela vem ANTES do seu .css: assim a página não pisca com a
+      fonte antiga antes de trocar.
+
+      Sem internet, nada disto carrega e a página cai para a segunda fonte
+      da lista, no estilo.css. É exatamente para isso que a lista existe.
+    -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
+          rel="stylesheet">
+
+    <!--
+      A ligação com a folha de estilos. Aparência é assunto do
+      css/estilo.css: este arquivo é só estrutura e conteúdo.
+    -->
+    <link rel="stylesheet" href="css/estilo.css">
+
+    <!--
+      O SEGUNDO TEMA (aula 06, passo 4). A linha deixou de ser comentada à
+      mão: agora ela está sempre no arquivo, mas DESLIGADA pelo atributo
+      disabled. Quem liga e desliga é o botão do cabeçalho, pelo JavaScript.
+
+      O id existe para o JavaScript achar este <link>. E a posição continua
+      importando: ele vem DEPOIS do estilo.css, porque é a cascata que faz o
+      tema ganhar.
+    -->
+    <link rel="stylesheet" href="css/tema-noite.css" id="tema-noite" disabled>
+
+    <!--
+      O JAVASCRIPT (aula 06, passo 1).
+
+      src     o caminho do arquivo, relativo a este index.html — como o href
+              do <link>.
+      defer   "baixe agora, mas só rode quando o HTML inteiro tiver sido
+              lido". Sem ele, o script roda aqui, no <head>, antes de existir
+              qualquer <h1> ou <button> — e todo document.querySelector
+              devolve null.
+
+      A tag <script> fecha com </script> sempre, mesmo vazia: ela não é
+      como o <link>.
+    -->
+    <script src="js/script.js" defer></script>
+  </head>
+  <body>
+
+    <!--
+      GABARITO DO LABORATÓRIO DA AULA 06.
+
+      Compare com exemplos/projeto-ponto-de-partida/frontend/index.html. O
+      HTML mudou em QUATRO lugares, e nenhum deles tem uma linha de
+      JavaScript dentro:
+
+        1. no <head>, o <script src defer> e o <link> do tema com id e
+           disabled;
+        2. no <header>, o <p id="saudacao"> e o <button id="botao-tema">;
+        3. no formulário, o maxlength do <textarea>;
+        4. logo abaixo dele, o <p id="contador">.
+
+      O HTML ganhou ids, porque é assim que o JavaScript acha as coisas. O
+      comportamento inteiro está em js/script.js — do mesmo jeito que a
+      aparência inteira está em css/. Nada de onclick="" aqui: é a mesma
+      regra do style="".
+    -->
+
+    <header>
+      <h1>Raquel Pacheco Mendes</h1>
+      <p>Estudante de Ciencias Da Computação</p>
+
+      <!--
+        Passos 2 e 3. O texto "Olá!" está aqui de propósito: se o JavaScript
+        falhar, ou estiver desligado, a página continua dizendo alguma coisa
+        que faz sentido. O script só MELHORA o que já funciona.
+      -->
+      <p id="saudacao">Olá!</p>
+
+      <!--
+        Passo 4. type="button" porque este botão não envia nada: sem ele,
+        um <button> dentro de um <form> seria um botão de enviar.
+      -->
+      <button type="button" id="botao-tema" class="botao-tema">Tema escuro</button>
+    </header>
+
+    <!-- Aula 03: os links soltos viraram uma lista, porque um menu é um conjunto de itens. -->
+    <nav>
+      <ul>
+        <li><a href="#sobre">Sobre mim</a></li>
+        <li><a href="#gostos">O que eu gosto</a></li>
+        <li><a href="#horarios">Meus horários</a></li>
+        <li><a href="#faculdade">Onde eu estudo</a></li>
+        <li><a href="#contato">Fale comigo</a></li>
+      </ul>
+    </nav>
+
+    <main>
+
+      <section id="sobre">
+        <h2>Sobre mim</h2>
+        <p>
+          Estudo Ciencias da Computação e estou aprendendo a construir páginas
+          web. Esta é a <strong>primeira página</strong> que escrevi inteiramente
+          à mão, e ela cresce a cada aula.
+        </p>
+      </section>
+
+      <section id="gostos">
+        <h2>O que eu gosto</h2>
+        <p>Música, Volei e videogame.</p>
+
+        <!-- ol porque a ordem significa algo: é um ranking. -->
+        <h3>Minhas três séries favoritas, em ordem</h3>
+        <ol>
+          <li>Death Note</li>
+          <li>The Officie</li>
+          <li>sons of anarchy</li>
+        </ol>
+
+        <!-- ul porque a ordem não significa nada. -->
+        <h3>Instrumentos que eu quero aprender</h3>
+        <ul>
+          <li>Violão</li>
+          <li>Guitarra</li>
+          <li>Bateria</li>
+        </ul>
+
+        <img src="img/foto.jpg" alt="Foto do campus Newton Paiva" width="400">
+      </section>
+
+      <section id="horarios">
+        <h2>Meus horários</h2>
+
+        <table>
+          <caption>Aulas do semestre 2026/2</caption>
+
+          <thead>
+            <tr>
+              <th scope="col">Dia</th>
+              <th scope="col">Disciplina</th>
+              <th scope="col">Sala</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <th scope="row">Segunda</th>
+              <td>Geometria Analitica e Algebra Linear</td>
+              <td>Lab 3</td>
+            </tr>
+            <tr>
+              <th scope="row">Quarta</th>
+              <td>Banco de Dados</td>
+              <td>Online</td>
+            </tr>
+            <tr>
+              <th scope="row">Quinta</th>
+              <td>Desinvolvimento web</td>
+              <td>Lab 1</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section id="faculdade">
+        <h2>Onde eu estudo</h2>
+        <p>
+          <a href="https://newtonpaiva.br">Centro Universitário Newton Paiva</a>
+        </p>
+      </section>
+
+      <section id="contato">
+        <h2>Fale comigo</h2>
+
+        <!-- action="#" só para o formulário existir sem servidor. No ciclo 8 vira um .php. -->
+        <form action="#" method="post">
+          <fieldset>
+            <legend>Seus dados</legend>
+
+            <div>
+              <label for="nome">Nome</label>
+              <input type="text" id="nome" name="nome" required>
+            </div>
+
+            <div>
+              <label for="email">E-mail</label>
+              <input type="email" id="email" name="email" required>
+            </div>
+
+            <div>
+              <label for="assunto">Assunto</label>
+              <select id="assunto" name="assunto">
+                <option value="duvida">Uma dúvida</option>
+                <option value="trabalho">Uma proposta de trabalho</option>
+                <option value="outro">Outro</option>
+              </select>
+            </div>
+
+            <div>
+              <label for="mensagem">Mensagem</label>
+              <textarea id="mensagem" name="mensagem" rows="5" cols="40"
+                        maxlength="500" required></textarea>
+
+              <!--
+                Passo 5. O limite de verdade é o maxlength, do HTML: ele
+                funciona mesmo sem JavaScript. O script só AVISA quanto
+                falta — e lê o limite daqui, para o número não ficar escrito
+                em dois lugares.
+
+                aria-live="polite" faz o leitor de tela anunciar a mudança
+                do texto, sem interromper quem está digitando.
+              -->
+              <p id="contador" class="contador" aria-live="polite">Até 500 caracteres</p>
+            </div>
+
+            <div>
+              <input type="checkbox" id="copia" name="copia" value="sim">
+              <label for="copia">Quero receber uma cópia desta mensagem</label>
+            </div>
+          </fieldset>
+
+          <div>
+            <button type="submit">Enviar</button>
+            <button type="reset">Limpar</button>
+          </div>
+        </form>
+      </section>
+
+    </main>
+
+    <aside>
+      <h2>Links que eu uso</h2>
+      <ul>
+        <li><a href="https://developer.mozilla.org/pt-BR/docs/Web/HTML">Referência de HTML (MDN)</a></li>
+        <li><a href="https://validator.w3.org">Validador do W3C</a></li>
+      </ul>
+    </aside>
+
+    <footer>
+      <p>Raquel Pacheco Mendes &middot; 2026 &middot; ARA0062 &middot; Newton Paiva</p>
+    </footer>
+
+  </body>
+</html>
